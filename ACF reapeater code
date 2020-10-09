@@ -1,0 +1,47 @@
+
+function reviews_custom(){
+	
+$rows = get_field('reviews');
+if( $rows ) {
+    foreach( $rows as $row ) {
+	 echo '<div class="reviwesrow">';
+        $image = $row['image'];
+		$date = $row['date'];
+		$title = $row['title'];
+		$descri = $row['description'];
+		$name = $row['name'];
+		 
+      ?>
+
+<div class="review-img">
+<img src="<?php echo $image; ?>" >
+			</div>
+
+<div class="reviwe-data">
+<div class="star-section">
+<div class="starleft">
+<span class="fa fa-star checkedd"></span>
+<span class="fa fa-star checkedd"></span>
+<span class="fa fa-star checkedd"></span>
+<span class="fa fa-star checkedd"></span>
+<span class="fa fa-star checkedd"></span>
+</div>
+	
+	<div class="dateright">
+	<p class="review-title"> <? echo $date; ?> </p>
+		</div>
+</div>
+
+	<p class="review-title"><? echo $title; ?></p>
+	<p class="review-description"><? echo $descri; ?></p>
+	<p class="review-name"><? echo $name; ?> <span><i class="fa fa-check-circle" aria-hidden="true"></i> Verifiled Buyer</span>	</p>
+	<p class="static-lable">Amazing Product Store</p>
+   <?   echo '</div>';
+		echo '</div>';
+    }
+    
+}
+	
+}
+
+add_shortcode( 'reviwes_code', 'reviews_custom' );
